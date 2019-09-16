@@ -11,7 +11,7 @@ import EventKit
 
 public extension EKRecurrenceRule {
 
-    public func stringForICalendar() -> String {
+    func stringForICalendar() -> String {
         let ret = self.description
         return "RRULE " + ret.components(separatedBy: " RRULE ")[1]
     }

@@ -11,7 +11,7 @@ import EventKit
 
 public extension EKRecurrenceRule {
 
-   public class func recurrenceRuleFromString(_ ruleString: String) -> EKRecurrenceRule? {
+    class func recurrenceRuleFromString(_ ruleString: String) -> EKRecurrenceRule? {
       let parser = RecurrenceParser(ruleString: NSString(string: ruleString))
 
       guard let type = parser.type else {
@@ -152,7 +152,7 @@ struct RecurrenceParser {
       if let match = reg?.firstMatch(in: String(self.ruleString),
                                            options:.reportProgress,
                                            range:NSRange(location:0, length:self.ruleString.length)) {
-         return self.ruleString.substring(with: match.rangeAt(1)).components(separatedBy: ",") as [NSString]?
+        return self.ruleString.substring(with: match.range(at: 1)).components(separatedBy: ",") as [NSString]?
       }
       return nil
    }
